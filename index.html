@@ -1,0 +1,98 @@
+<html>
+<head>
+<style>
+
+#play, #auto, #speed, #reset {
+	width: 50px;
+	height: 20px;
+	background: #DEDEDE;
+	cursor: pointer;
+	text-align: center;
+	display: inline-block;
+}
+#turn {
+	width: auto;
+	display: inline-block;
+}
+#console {
+	width: 90vw;
+	display: block;
+}
+#import, #export, #models, #load {
+	width: 60px;
+	height: 20px;
+	display: inline-block;
+	background: #DEDEDE;
+	cursor: pointer;
+	text-align: center;
+}
+#grid {
+	height : 80vh;
+	width: 100wh;
+	overflow: scroll;
+}
+	.cell{
+		height: 5px;
+		width: 5px;
+		border: 1px solid #dedede;
+		background: #000;
+		display: inline-block;
+		box-sizing: border-box;
+	}
+		.cell.empty {
+			background: #FFF;
+		}
+</style>
+</head>
+<body>
+<div id="play" onclick="play();">PLAY</div>
+<div id="auto" onclick="autoPlay();">AUTO</div>
+<input id="speed" type="text" value="1">
+<div id="reset" onclick="resetGrid();">reset</div>
+<div id="turn">generation : 0</div>
+
+<div id="grid">
+</div>
+
+<footer>
+<div id="export" onclick="exportGrid();">export</div>
+<div id="import" onclick="importGrid();">import</div>
+<select id="models">
+	<optgroup label="Basics">
+		<option value="block">block</option>
+		<option value="boat">boat</option>
+		<option value="loaf">loaf</option>
+		<option value="beehive">beehive</option>
+	</optgroup>
+	<optgroup label="Oscillators ">
+		<option value="blinker">blinker</option>
+		<option value="beacon">beacon</option>
+		<option value="toad">toad</option>
+		<option value="pulsar">pulsar</option>
+	</optgroup>
+	<optgroup label="Gliders and Spaceships">
+		<option value="glider">glider</option>
+		<option value="lightweight spaceship">lightweight spaceship</option>
+	</optgroup>
+	<optgroup label="Casters">
+		<option value="gosper glider gun">gosper glider gun</option>
+	</optgroup>
+	<optgroup label="Various">
+		<option value="nice1">nice1</option>
+		<option value="nice2">nice2</option>
+	</optgroup>
+	
+	
+</select>
+<div id="load" onclick="importModel(document.getElementById('models').value);">LOAD</div>
+<div id="load" onclick="importModel(document.getElementById('models').value, false);">ADD</div>
+
+<textarea id="console"></textarea>
+</footer>
+
+<script src="jeudelavie.js">
+
+</script>
+<p>models : http://web.stanford.edu/~cdebs/GameOfLife/#history</p>
+</body>
+</html>
